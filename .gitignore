@@ -54,3 +54,5 @@ _ReSharper*/
 .idea/markdown_navigator.xml
 .idea/markdown_navigator.xml
 .idea/mark
+
+*.db
