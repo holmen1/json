@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using test.Models;
 
 namespace test.Data;
@@ -6,12 +7,17 @@ using Microsoft.EntityFrameworkCore;
 
 public class ApplicationDbContext : DbContext
 {
+    private readonly IConfiguration _configuration;
+
+    public ApplicationDbContext(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
     public DbSet<Assumption> Assumptions { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Database=assumptions;Username=sa;Password=sa");
-        //optionsBuilder.UseSqlite("Data Source=assumptions.db");
-        //optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=assumptions;Trusted_Connection=True;");
+        var connectionString = _configuration.GetConnectionString("DefaultConnection");
+        optionsBuilder.UseNpgsql(connectionString);
     }
 }
