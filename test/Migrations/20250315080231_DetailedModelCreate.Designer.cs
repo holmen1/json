@@ -10,14 +10,14 @@ using test.Data;
 namespace test.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250314120537_DetailedModelCreate")]
+    [Migration("20250315080231_DetailedModelCreate")]
     partial class DetailedModelCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.14");
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.3");
 
             modelBuilder.Entity("test.Models.Assumption", b =>
                 {
