@@ -10,7 +10,8 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source=assumptions.db");
+        optionsBuilder.UseNpgsql("Host=localhost;Database=assumptions;Username=sa;Password=sa");
+        //optionsBuilder.UseSqlite("Data Source=assumptions.db");
         //optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=assumptions;Trusted_Connection=True;");
     }
 }

@@ -12,11 +12,10 @@ class Program
     {
         using (var db = new ApplicationDbContext())
         {
-            //db.Database.Migrate();
 
-            if (db.Assumptions.Any())
+            if (!db.Assumptions.Any())
             {
-                var json = System.IO.File.ReadAllText("/Users/holmen/repos/test/test/assumptions.json");
+                var json = System.IO.File.ReadAllText("/home/holmen1/repos/json/test/assumptions.json");
                 var jsonData = JsonDocument.Parse(json).RootElement.GetProperty("Assumptions");
 
                 var assumptions = new List<Assumption>();

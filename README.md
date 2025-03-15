@@ -2,7 +2,7 @@
 ```
 dotnet tool install --global dotnet-ef
 
-dotnet ef migrations add DetailedModelCreate
+dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
