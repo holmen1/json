@@ -1,24 +1,52 @@
 {
-  "Assumptions": {
-    "A": {
-      "HR": {
-        "Investment": 1.0,
-        "cash": 2.0
-      },
-      "LR": {
-        "Investment": 3.0,
-        "cash": 4.0
-      }
+  "assumptions": [
+    {
+      "level1": "A",
+      "level2": "HR",
+      "level3": "Investment",
+      "value": 0.0
     },
-    "B": {
-      "HR": {
-        "Investment": 5.0,
-        "cash": 6.0
-      },
-      "LR": {
-        "Investment": 7.0,
-        "cash": 8.0
-      }
+    {
+      "level1": "A",
+      "level2": "HR",
+      "level3": "cash",
+      "value": 0.0
+    },
+    {
+      "level1": "A",
+      "level2": "LR",
+      "level3": "Investment",
+      "value": 0.0
+    },
+    {
+      "level1": "A",
+      "level2": "LR",
+      "level3": "cash",
+      "value": 0.0
+    },
+    {
+      "level1": "B",
+      "level2": "HR",
+      "level3": "Investment",
+      "value": 0.0
+    },
+    {
+      "level1": "B",
+      "level2": "HR",
+      "level3": "cash",
+      "value": 6.66
+    },
+    {
+      "level1": "B",
+      "level2": "LR",
+      "level3": "Investment",
+      "value": 0.0
+    },
+    {
+      "level1": "B",
+      "level2": "LR",
+      "level3": "cash",
+      "value": 0.0
     }
-  }
+  ]
 }

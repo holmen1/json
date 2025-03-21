@@ -29,24 +29,28 @@ namespace test.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Kategory")
+                    b.Property<string>("Level1")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("Kategory");
+                        .HasColumnName("Level1")
+                        .HasAnnotation("Relational:JsonPropertyName", "level1");
 
-                    b.Property<string>("Level")
+                    b.Property<string>("Level2")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("Level");
+                        .HasColumnName("Level2")
+                        .HasAnnotation("Relational:JsonPropertyName", "level2");
 
-                    b.Property<string>("SubLevel")
+                    b.Property<string>("Level3")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("SubLevel");
+                        .HasColumnName("Level3")
+                        .HasAnnotation("Relational:JsonPropertyName", "level3");
 
                     b.Property<double>("Value")
                         .HasColumnType("double precision")
-                        .HasColumnName("Value");
+                        .HasColumnName("Value")
+                        .HasAnnotation("Relational:JsonPropertyName", "value");
 
                     b.HasKey("Id");
 

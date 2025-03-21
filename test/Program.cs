@@ -15,7 +15,7 @@ internal class Program
 
         using (var db = new ApplicationDbContext(configuration))
         {
-            if (!TableExists(db, "Assumptions")) db.Database.Migrate();
+            //if (!TableExists(db, "Assumptions")) db.Database.Migrate();
 
             if (!db.Assumptions.Any())
             {
@@ -44,20 +44,10 @@ internal class Program
         var jsonPropertyName = configuration["JsonSettings:PropertyName"];
 
         var json = File.ReadAllText(jsonFilePath);
-        var jsonData = JsonDocument.Parse(json).RootElement.GetProperty(jsonPropertyName);
-
-        var assumptions = new List<Assumption>();
-
-        foreach (var level in jsonData.EnumerateObject())
-        foreach (var subLevel in level.Value.EnumerateObject())
-        foreach (var category in subLevel.Value.EnumerateObject())
-            assumptions.Add(new Assumption
-            {
-                Level = level.Name,
-                SubLevel = subLevel.Name,
-                Kategory = category.Name,
-                Value = category.Value.GetDouble()
-            });
+        var jsonDocument = JsonDocument.Parse(json);
+        var assumptionsElement = jsonDocument.RootElement.GetProperty(jsonPropertyName);
+        
+        var assumptions = JsonSerializer.Deserialize<List<Assumption>>(assumptionsElement.GetRawText());
 
         return assumptions;
     }

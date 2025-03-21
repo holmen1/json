@@ -17,9 +17,9 @@ namespace test.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Level = table.Column<string>(type: "text", nullable: false),
-                    SubLevel = table.Column<string>(type: "text", nullable: false),
-                    Kategory = table.Column<string>(type: "text", nullable: false),
+                    Level1 = table.Column<string>(type: "text", nullable: false),
+                    Level2 = table.Column<string>(type: "text", nullable: false),
+                    Level3 = table.Column<string>(type: "text", nullable: false),
                     Value = table.Column<double>(type: "double precision", nullable: false)
                 },
                 constraints: table =>
