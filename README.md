@@ -25,3 +25,5 @@ $ docker exec -it postgres psql -U sa -d assumptions -c "\l"
              |       |          |                 |            |            |        |           | sa=CTc/sa
 
 ```
+Rider connection string:
+jdbc:sqlite:/Users/holmen/repos/test/test/assumptions.db

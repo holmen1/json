@@ -18,6 +18,7 @@ public class ApplicationDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         var connectionString = _configuration.GetConnectionString("DefaultConnection");
-        optionsBuilder.UseNpgsql(connectionString);
+        //optionsBuilder.UseNpgsql(connectionString);
+        optionsBuilder.UseSqlite(connectionString);
     }
 }

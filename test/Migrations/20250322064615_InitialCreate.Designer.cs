@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using test.Data;
 
 #nullable disable
@@ -11,47 +10,41 @@ using test.Data;
 namespace test.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250321181310_InitialCreate")]
+    [Migration("20250322064615_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.3")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
-
-            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.3");
 
             modelBuilder.Entity("test.Models.Assumption", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Level1")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("TEXT")
                         .HasColumnName("Level1")
                         .HasAnnotation("Relational:JsonPropertyName", "level1");
 
                     b.Property<string>("Level2")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("TEXT")
                         .HasColumnName("Level2")
                         .HasAnnotation("Relational:JsonPropertyName", "level2");
 
                     b.Property<string>("Level3")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("TEXT")
                         .HasColumnName("Level3")
                         .HasAnnotation("Relational:JsonPropertyName", "level3");
 
                     b.Property<double>("Value")
-                        .HasColumnType("double precision")
+                        .HasColumnType("REAL")
                         .HasColumnName("Value")
                         .HasAnnotation("Relational:JsonPropertyName", "value");
 

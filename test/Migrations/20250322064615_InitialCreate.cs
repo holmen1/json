@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -15,12 +14,12 @@ namespace test.Migrations
                 name: "Assumptions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Level1 = table.Column<string>(type: "text", nullable: false),
-                    Level2 = table.Column<string>(type: "text", nullable: false),
-                    Level3 = table.Column<string>(type: "text", nullable: false),
-                    Value = table.Column<double>(type: "double precision", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Level1 = table.Column<string>(type: "TEXT", nullable: false),
+                    Level2 = table.Column<string>(type: "TEXT", nullable: false),
+                    Level3 = table.Column<string>(type: "TEXT", nullable: false),
+                    Value = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
