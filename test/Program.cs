@@ -17,12 +17,23 @@ internal class Program
         {
             //if (!TableExists(db, "Assumptions")) db.Database.Migrate();
 
-            if (db.Assumptions.Any())
+            if (!db.Assumptions.Any())
             {
                 var assumptions = LoadAssumptionsFromJson(configuration);
                 db.Assumptions.AddRange(assumptions);
                 db.SaveChanges();
             }
+        }
+    }
+
+    private static bool TableExists(ApplicationDbContext context, string tableName)
+    {
+        var connection = context.Database.GetDbConnection();
+        connection.Open();
+        using (var command = connection.CreateCommand())
+        {
+            command.CommandText = $"SELECT 1 FROM information_schema.tables WHERE table_name = '{tableName}'";
+            return command.ExecuteScalar() != null;
         }
     }
 
