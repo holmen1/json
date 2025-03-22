@@ -25,3 +25,9 @@ $ docker exec -it postgres psql -U sa -d assumptions -c "\l"
              |       |          |                 |            |            |        |           | sa=CTc/sa
 
 ```
+
+
+```csharp
+assumptionsDictionary[Assumption1.B][Assumption2.HR][Assumption3.Cash]
+6.6600000000000001
+```
